@@ -1,31 +1,95 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class TestPage extends StatelessWidget{
+class TestPage extends StatefulWidget {
   const TestPage({super.key});
-  Widget buildItem(IconData icon,String label){
-      return Column(
-            children: [
-              Icon(icon,color: Colors.pink,),
-              Text(label,style: GoogleFonts.notoSansThai(color: Colors.pink,
-              fontSize:20.0)),
-            ],
-          );
-  }
+
   @override
-  Widget build(BuildContext context){
+  State<TestPage> createState() => _TestPageState();
+}
+
+class _TestPageState extends State<TestPage> {
+  // state variables
+  var _text = "";
+  IconData? _icon;
+
+  Widget buildItem({
+    required IconData icon, //optional
+    required String label,
+    Color color = Colors.black,
+  }) {
+    return InkWell(
+      onTap: () {
+        setState(() {
+          //_text = Random().nextInt(100).toString();
+          _text = label;
+          _icon = icon;
+        });
+      },
+      child: Container(
+        width: 100.0,
+        padding: const EdgeInsets.symmetric(vertical: 20.0),
+        child: Column(
+          children: [
+            Icon(icon, color: color),
+            Text(
+              label,
+              style: GoogleFonts.notoSansThai(
+                color: color,
+                fontSize: 20.0,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  // Widget buildTextWithBackground({
+  @override
+  Widget build(BuildContext context) {
+    var itemList = [
+      buildItem(icon: Icons.phone, label: "โทร", color: Colors.pink),
+      buildItem(icon: Icons.route, label: "เส้นทาง", color: Colors.blue),
+      buildItem(icon: Icons.share, label: "แชร์", color: Colors.green),
+      buildItem(icon: Icons.person, label: "ฉัน", color: Colors.orange),
+    ];
+
     return Scaffold(
       body: Container(
-        padding: EdgeInsets.only(top: 50.0),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.start,
+        padding: EdgeInsets.only(top: 16.0),
+        child: Column(
           children: [
-            buildItem(Icons.phone,"โทร"),
-            buildItem(Icons.route,"เส้นทาง"),
-            buildItem(Icons.share,"แชร์"),
-            buildItem(Icons.person,"ฉัน"),
-            ],
+            ElevatedButton(
+                onPressed: () {
+                  setState(() {
+                    _text = "";
+                    _icon = null;
+                  });
+                },
+                child: Text("Clear")),
+            Expanded(
+              child: Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(_icon, size: 100.0),
+                    Text(
+                      _text,
+                      style: GoogleFonts.kanit(fontSize: 80.0),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              //crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: itemList,
+            ),
+          ],
         ),
       ),
     );
