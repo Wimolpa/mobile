@@ -1,4 +1,5 @@
 import 'package:coffee_shop_app/pages/cart_page.dart';
+import 'package:coffee_shop_app/pages/test_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
         scaffoldBackgroundColor: Color(0xFF0C0F14),
       ),
-      home: const CartPage(),
+      home: const TestPage(),
     );
   }
 }
