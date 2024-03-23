@@ -152,31 +152,34 @@ class _PageMatrixstate extends State<PageMatrix> {
               shape: BoxShape.circle,
               color: Colors.white,
             ),
-            child: InkWell(
-              onTap: () {
-                setState(
-                  () {
-                    if (count < 99) {
-                      count++;
-                      if (count < 10) {
-                        SCount = '0' + count.toString();
+            child: Material(
+              child: InkWell(
+                onTap: () {
+                  setState(
+                    () {
+                      if (count < 99) {
+                        count++;
+                        if (count < 10) {
+                          SCount = '0' + count.toString();
+                        } else {
+                          SCount = count.toString();
+                        }
                       } else {
-                        SCount = count.toString();
+                        count = 0;
+                        SCount = '00';
                       }
-                    } else {
-                      count = 0;
-                      SCount = '00';
-                    }
-                  },
-                );
-              },
-              child: Container(
-                child: Icon(
-                  Icons.arrow_drop_up_outlined,
-                  size: 60.0,
+                    },
+                  );
+                },
+                child: Container(
+                  child: Icon(
+                    Icons.arrow_drop_up_outlined,
+                    size: 60.0,
+                  ),
                 ),
               ),
-            )),
+            ),
+            ),
       );
     } else {
       return Center(
