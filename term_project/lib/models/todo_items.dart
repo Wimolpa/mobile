@@ -1,50 +1,3 @@
-
-// class ProductsList {
-//   List<Products>? products;
-//   int? total;
-//   int? skip;
-//   int? limit;
-
-// ProductsList({
-//     this.products,
-//     this.total,
-//     this.skip,
-//     this.limit,
-//   });
-//   factory ProductsList.fromJson(Map<String, dynamic> json) {
-//     return ProductsList(
-//       products: json['products'] != null ? (json['products'] as List).map((i) => Products.fromJson(i)).toList() : null,
-//       total: json['total'],
-//       skip: json['skip'],
-//     );
-//   }
-// }
-
-// class Products {
-//   String? title;
-//   String? description;
-//   int? price;
-//   String? brand;
-//   String? images;
-
-//   Products({
-//     this.title,
-//     this.description,
-//     this.price,
-//     this.brand,
-//     this.images,
-//   });
-
-//   factory  Products.fromJson(Map<String, dynamic> json) {
-//     return  Products(
-//       title: json['title'],
-//       description: json['description'],
-//       price: json['price'],
-//       brand: json['brand'],
-//       images: json['images'][0],
-//     );
-//   }
-// }
 class ProductsList {
   List<Products>? products;
   int? total;
@@ -88,7 +41,7 @@ class Products {
   String? brand;
   String? category;
   String? thumbnail;
-  List<String>? images;
+  List <String>? images;
 
   Products(
       {this.id,
