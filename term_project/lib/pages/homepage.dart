@@ -54,10 +54,8 @@ class _HomePageState extends State<HomePage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  Center(child: Text('* ต้องกรอกข้อมูล')),
-                  const SizedBox(height: 16),
                   MyTextField(
-                      controller: _titleTextController, hintText: 'URL *'),
+                      controller: _titleTextController, hintText: 'ชื่อสินค้า*'),
                   const SizedBox(height: 16),
                   Expanded(
                     child: ListView.builder(
