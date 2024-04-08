@@ -20,7 +20,7 @@ class MyTextField extends StatelessWidget {
       controller: controller,
       decoration: InputDecoration(
         filled: true,
-        fillColor: Colors.white,
+        fillColor: Colors.grey[100],
         hintText: hintText,
         contentPadding: const EdgeInsets.only(
           left: 16.0,
